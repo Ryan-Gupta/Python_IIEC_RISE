@@ -43,7 +43,7 @@ while True:
 	run = True
 	i = 0 
 	brk = False
-	file = False
+	file = True
 
 #check if input contains any word from the exitc list 
 
@@ -74,24 +74,28 @@ while True:
 			run = False			
 		i = i + 1
 
+#if input contains negetive
+	if neg:
+		print("OK, What should I do now ?")
+	else:
 #if we get a run var as True & neg as False(i.e we have to run some command). so we furthur check which program to run
 
-	if run and not neg:
+		if run:
 
 #check if input contains any word from the file list, run that program & set file variable
 
-		i = 0
-		while i<len(file_list):	
-			if file_list[i] in ans:
-				cmd = cmds[i]				
-				os.system(cmd)
-				file = True
-				break	
-			else:
-				file = False		
+			i = 0
+			while i<len(file_list):	
+				if file_list[i] in ans:
+					cmd = cmds[i]				
+					os.system(cmd)
+					file = True
+					break	
+				else:
+					file = False		
 			i = i + 1
-	else:
-		print("Something went wrong")
+		else:
+			print("Something went wrong")
 
 #if we dont find the file then we must add it 
 
